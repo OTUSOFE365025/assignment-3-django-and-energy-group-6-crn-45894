@@ -1,32 +1,61 @@
-############################################################################
-## Django ORM Standalone Python Template
-############################################################################
-""" Here we'll import the parts of Django we need. It's recommended to leave
-these settings as is, and skip to START OF APPLICATION section below """
+from decimal import Decimal
 
-# Turn off bytecode generation
 import sys
 sys.dont_write_bytecode = True
 
-# Import settings
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 
-# setup django environment
 import django
 django.setup()
 
-# Import your models for use in your script
 from db.models import *
 
-############################################################################
-## START OF APPLICATION
-############################################################################
-""" Replace the code below with your own """
+def loadProducts(filename='sampleProducts.txt'):
+    
+    #Read UPC, name, and price from sampleproducts.txt and
+    #saves them to the database
+    
+    #Checks if file exists
+    if not os.path.exists(filename):
+        print(f"File not found: {filename}")
+        return
+    
+    #Reads and stores product UPC, name, and price
+    count = 0
+    with open(filename, 'r') as file:
+        for line in file:
+            sections = line.strip().split()
+            if len(sections) >= 3:
+                upc = sections[0]
+                name = sections[1]
+                price_str = sections[-1].replace('$', '')
+                try:
+                    price = Decimal(price_str)
+                except:
+                    print(f"Skipping invalid price on line: {line.strip()}")
+                    continue
+                
+                #Insert/update product using Django ORM
+                Product.objects.update_or_create(
+                    upc=upc,
+                    defaults={'name': name, 'price': price}
+                )
+                count += 1
 
-# Seed a few users in the database
-User.objects.create(name='Dan')
-User.objects.create(name='Robert')
+    print(f"Loaded {count} products into the database.")
 
-for u in User.objects.all():
-    print(f'ID: {u.id} \tUsername: {u.name}')
+def showProducts():
+    
+    products = Product.objects.all()
+    if not products:
+        print("There are no products in the database.")
+        return
+
+    print("\nProducts in the database:")
+    for i in products:
+        print(f"UPC: {i.upc:10} | Name: {i.name:15} | Price: ${i.price}")
+    print("")
+
+loadProducts('sampleProducts.txt')
+showProducts()
