@@ -12,4 +12,3 @@
 4. python manage.py makemigrations
 5. python manage.py migrate
 6. python main.py
-
