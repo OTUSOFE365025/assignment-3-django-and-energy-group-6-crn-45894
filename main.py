@@ -11,10 +11,9 @@ django.setup()
 
 from db.models import *
 
+#Read UPC, name, and price from sampleproducts.txt and
+#saves them to the database
 def loadProducts(filename='sampleProducts.txt'):
-    
-    #Read UPC, name, and price from sampleproducts.txt and
-    #saves them to the database
     
     #Checks if file exists
     if not os.path.exists(filename):
@@ -45,13 +44,16 @@ def loadProducts(filename='sampleProducts.txt'):
 
     print(f"Loaded {count} products into the database.")
 
+#Displays products currently in the database
 def showProducts():
     
+    #Retrieves product and does error handling
     products = Product.objects.all()
     if not products:
         print("There are no products in the database.")
         return
-
+    
+    #Prints all products in the database with formatting
     print("\nProducts in the database:")
     for i in products:
         print(f"UPC: {i.upc:10} | Name: {i.name:15} | Price: ${i.price}")
