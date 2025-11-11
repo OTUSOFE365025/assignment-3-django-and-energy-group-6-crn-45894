@@ -16,7 +16,8 @@ assignment-3-django-and-energy-group-6-crn-45894/
 ├── Instructions.md         # Original project instructions (original README file text)
 ├── UI.py                   # Tkinter GUI for scanning UPCs and displaying product information
 ├── db.sqlite3              # SQLite database (auto-generated after migration)
-├── main.py                 # Loads and displays product data from sampleproducts.txt into the database
+├── main.py                 # Loads and displays product data from sampleproducts.txt into the
+database
 ├── manage.py               # Django utility file (migration & setup commands)
 ├── sampleproducts.txt      # Source file holding product information (UPC code, name, price)
 └── settings.py             # Django configuration (database, app registration)
