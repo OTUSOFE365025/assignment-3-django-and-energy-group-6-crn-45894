@@ -47,8 +47,8 @@ database
     ```bash
     cd assignment-3-django-and-energy-group-6-crn-45894
     ```
-5.  `python -m venv venv`
-6.  `venv\Scripts\activate` (Windows) OR `source venv/bin/activate` (macOS/Linux)
+5.  `python -m venv venv` (Windows) OR `python3 -m venv venv`
+6.  `venv\Scripts\activate` (Windows) OR `source venv/bin/activate` (macOS/Linux/WSL)
 7.  `pip install django`
 8.  `python manage.py makemigrations`
 9.  `python manage.py migrate`
@@ -96,3 +96,4 @@ Scrollbar Functionality
 
 
 ![alt text](images/image-7.png)
+
