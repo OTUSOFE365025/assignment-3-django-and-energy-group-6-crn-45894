@@ -7,6 +7,7 @@
 - `Instructions.md ` - Assignment Part 1 instructions (originally the README file).
 - `sampleproducts.txt` - List of sample products with upc, name, and price.
 - `UI.py` - Tkinter-based GUI program - scans upc codes and stores them in the database.
+- `/images` - Folder containing all output screenshots - in this README as well.
 
 ### Environment Setup
 1. python -m venv venv
@@ -30,12 +31,15 @@ Scanner UI
 ![alt text](images/image-2.png)
 
 Successful Scan
+
 ![alt text](images/image-3.png)
 ![alt text](images/image-4.png)
 
 Unsuccessful Scan
+
 ![alt text](images/image-5.png)
 ![alt text](images/image-6.png)
 
 Scrollbar Functionality
+
 ![alt text](images/image-7.png)
