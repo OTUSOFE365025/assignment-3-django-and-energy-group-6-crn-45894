@@ -1,17 +1,41 @@
 ## Q1 — Code Organization & Django ORM
 
-### Repository Contents (Added)
+### Objective
+This project uses the Django Object-Relational Mapper (ORM) to manipulate data using Python scripts and a Tkinter-based GUI. The overall functionality is similar to that of the implementation in Assignment 2, but this version loads all the products into a Django database and uses ORM queries to retrieve them. Users enter UPC codes and click the scan button (or press enter) to display their names and prices, as well as a running subtotal.
+
+### Repository Structure
+
+assignment-3-django-and-energy-group-6-crn-45894/
+├── github/
+├── db/
+│   ├── __init__.py
+│   └── models.py           # Django ORM model holding Product data (upc, name, price)
+├── images/                 # Holds all output screenshots
+├── venv/
+│
+├── Instructions.md         # Original project instructions (original README file text)
+├── UI.py                   # Tkinter GUI for scanning UPCs and displaying product information
+├── db.sqlite3              # SQLite database (auto-generated after migration)
+├── main.py                 # Loads and displays product data from sampleproducts.txt into the database
+├── manage.py               # Django utility file (migration & setup commands)
+├── sampleproducts.txt      # Source file holding product information (UPC code, name, price)
+└── settings.py             # Django configuration (database, app registration)
+
+### Repository Contents (Added Files)
 - `db/models.py` — Product model (upc, name, price) using Django ORM.
 - `main.py` - Main program - loads products into the databases and displays them in the terminal.
+    - Initializes Django environment, reads products from sampleproducts.txt, displays products in the database
+    - ORM operations used: Product.objects.count(), Product.objects.filter()
+- `UI.py` - Tkinter-based GUI program - scans upc codes and stores them in the database.
+    - Error handling for invalid/missing UPCs, scrollable text area, dynamic subtotal label update
 - `sampleProducts.txt` — List of product sample data including UPC code, name, and price.
 - `Instructions.md ` - Assignment Part 1 instructions (originally the README file).
 - `sampleproducts.txt` - List of sample products with upc, name, and price.
-- `UI.py` - Tkinter-based GUI program - scans upc codes and stores them in the database.
 - `/images` - Folder containing all output screenshots - in this README as well.
 
 ### Environment Setup
 1. python -m venv venv
-2. venv\Scripts\activate (Windows)
+2. venv\Scripts\activate (Windows) OR source venv/bin/activate (macOS/Linux)
 3. pip install django
 4. python manage.py makemigrations
 5. python manage.py migrate
@@ -22,6 +46,19 @@
 
 ### Django ORM Usage
 ![alt text](images/image-1.png)
+
+#### ORM Operations Used
+- Product.objects.update_or_create(upc=upc, defaults={'name': name, 'price': price})
+    - Inserts new products
+    - Updates existing records from the text file
+- Product.objects.get(upc=upc)
+    - Retrieve product details for a scanned UPC
+- Product.objects.all()
+    - List all stored products
+- except Product.DoesNotExist:
+    - Error handling for invalid UPC scans
+
+Django ORM ensures data persistence between text data and the GUI. main.py imports data into the SQLite database while UI.py returns product information using ORM queries. Because all commands are object-based, no manual SQL queries are needed.
 
 ### Screenshots
 Imported Products
