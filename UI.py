@@ -16,7 +16,7 @@ class CashRegister:
         
         #Define main scanner window
         self.master = master
-        master.title("Cash Register (Django ORM + Tkinter)")
+        master.title("Cash Register")
         master.geometry("400x400")
         master.resizable(0, 0)
         
@@ -31,6 +31,8 @@ class CashRegister:
         #Scan button
         self.upcEntry = Entry(master, font=("Times New Roman", 14))
         self.upcEntry.pack(pady=3)
+        
+        self.upcEntry.bind("<Return>", self.scanEvent) #Enter key can scan product
         
         self.scanButton = Button(master, text="Scan", command=self.scanProduct, font=("Times New Roman", 12))
         self.scanButton.pack(pady=3)
@@ -55,6 +57,9 @@ class CashRegister:
         
         self.textFrame.grid_rowconfigure(0, weight=1)
         self.textFrame.grid_columnconfigure(0, weight=1)
+    
+    def scanEvent(self, event):
+        self.scanProduct()
     
     #Function to scan products and output them to display
     def scanProduct(self):
