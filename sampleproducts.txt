@@ -1,0 +1,10 @@
+12345 Coffee 8.32
+67890 Muffin 2.50
+83639 Apple 6.96
+10294 Eggs 9.94
+40291 Blueberries 4.28
+64492 Beef 10.85
+75681 Chicken 7.64
+58440 Potatoes 2.10
+29985 Chocolate 4.57
+67676 Tea 3.92
