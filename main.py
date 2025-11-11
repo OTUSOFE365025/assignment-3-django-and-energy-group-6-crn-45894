@@ -13,7 +13,7 @@ from db.models import *
 
 #Read UPC, name, and price from sampleproducts.txt and
 #saves them to the database
-def loadProducts(filename='sampleProducts.txt'):
+def loadProducts(filename='sampleproducts.txt'):
     
     #Checks if file exists
     if not os.path.exists(filename):
@@ -59,5 +59,6 @@ def showProducts():
         print(f"UPC: {i.upc:10} | Name: {i.name:15} | Price: ${i.price}")
     print("")
 
-loadProducts('sampleProducts.txt')
+loadProducts('sampleproducts.txt')
+
 showProducts()
