@@ -5,6 +5,7 @@ This project uses the Django Object-Relational Mapper (ORM) to manipulate data u
 
 ### Repository Structure
 
+```
 assignment-3-django-and-energy-group-6-crn-45894/
 ├── github/
 ├── db/
@@ -21,6 +22,7 @@ database
 ├── manage.py               # Django utility file (migration & setup commands)
 ├── sampleproducts.txt      # Source file holding product information (UPC code, name, price)
 └── settings.py             # Django configuration (database, app registration)
+```
 
 ### Repository Contents (Added Files)
 - `db/models.py` — Product model (upc, name, price) using Django ORM.
