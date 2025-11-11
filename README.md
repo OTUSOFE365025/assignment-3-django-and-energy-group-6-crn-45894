@@ -28,7 +28,7 @@ database
 - `db/models.py` — Product model (upc, name, price) using Django ORM.
 - `main.py` - Main program - loads products into the databases and displays them in the terminal.
     - Initializes Django environment, reads products from sampleproducts.txt, displays products in the database
-    - ORM operations used: Product.objects.count(), Product.objects.filter()
+    - ORM operations used: Product.objects.update_or_create(), Product.objects.all()
 - `UI.py` - Tkinter-based GUI program - scans upc codes and stores them in the database.
     - Error handling for invalid/missing UPCs, scrollable text area, dynamic subtotal label update
 - `sampleProducts.txt` — List of product sample data including UPC code, name, and price.
@@ -49,6 +49,8 @@ database
 
 ### Django ORM Usage
 ![alt text](images/image-1.png)
+
+This project showcases Django ORM usage in a standalone Python environment (no webserver). The operations below demonstrate the usage of Django ORM across the project files to perform application functionality.
 
 #### ORM Operations Used
 - Product.objects.update_or_create(upc=upc, defaults={'name': name, 'price': price})
