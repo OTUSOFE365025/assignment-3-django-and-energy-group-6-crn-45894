@@ -37,15 +37,25 @@ database
 - `/images` - Folder containing all output screenshots - in this README as well.
 
 ### Environment Setup
-1. python -m venv venv
-2. venv\Scripts\activate (Windows) OR source venv/bin/activate (macOS/Linux)
-3. pip install django
-4. python manage.py makemigrations
-5. python manage.py migrate
+1.  Open Terminal or Command Prompt.
+2.  Go to the folder where you will store the project.
+3.  Clone the repository
+    ```bash
+    git clone https://github.com/OTUSOFE365025/assignment-3-django-and-energy-group-6-crn-45894.git
+    ```
+4.  Navigate into the project directory
+    ```bash
+    cd assignment-3-django-and-energy-group-6-crn-45894
+    ```
+5.  `python -m venv venv`
+6.  `venv\Scripts\activate` (Windows) OR `source venv/bin/activate` (macOS/Linux)
+7.  `pip install django`
+8.  `python manage.py makemigrations`
+9.  `python manage.py migrate`
 
 ### Run Instructions
-1. python main.py
-2. python UI.py
+1. `python main.py`
+2. `python UI.py`
 
 ### Django ORM Usage
 ![alt text](images/image-1.png)
@@ -83,5 +93,6 @@ Unsuccessful Scan
 ![alt text](images/image-6.png)
 
 Scrollbar Functionality
+
 
 ![alt text](images/image-7.png)
